@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^13.5.0",
+    "clsx": "^2.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-scripts": "5.0.1",
@@ -35,5 +37,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@gsap/react": "^2.1.2",
+    "firebase": "^12.7.0",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.561.0",
+    "motion": "^12.23.26",
+    "react-router-dom": "^7.10.1",
+    "tailwindcss": "^3.4.19"
   }
 }
