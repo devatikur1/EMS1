@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import google from "../assets/google.png";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   const container = useRef(null);
   return (
     <div
