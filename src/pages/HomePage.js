@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
 import { DrawingTransformation } from "../components/Home/DrawingTransformation";
 import { CalculatorIcon, ChartBarIcon, NewspaperIcon, SparklesIcon, } from "lucide-react";
 import { ClipboardDocumentCheckIcon, CursorArrowRaysIcon, DocumentTextIcon, PuzzlePieceIcon, } from "@heroicons/react/16/solid";
 
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export default function HomePage() {
   const container = useRef(null);
