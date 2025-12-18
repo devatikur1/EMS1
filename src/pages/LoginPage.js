@@ -37,7 +37,7 @@ export default function LoginPage() {
   // ---------------------
   useEffect(() => {
     if (isLogged === true) {
-      navigate("/");
+      navigate("/u");
     }
   }, [isLogged, navigate]);
 

@@ -16,7 +16,7 @@ export default function UPage() {
   // ---------------------
   useEffect(() => {
     if (!isLogged) {
-      navigate("/");
+      navigate("/login");
     }
   }, [isLogged, navigate]);
 

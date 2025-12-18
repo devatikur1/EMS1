@@ -22,22 +22,8 @@ import { AppContext } from "../context/AppContext";
 gsap.registerPlugin(useGSAP);
 
 export default function HomePage() {
-  // 🔹 useContext context
-  const { authId } = useContext(AppContext);
-  const { isLogged } = authId;
-
   // 🔹 Ref & Navigate
   const container = useRef(null);
-  const navigate = useNavigate();
-
-  // ---------------------
-  // ✅ Check isLogged
-  // ---------------------
-  useEffect(() => {
-    if (isLogged) {
-      navigate("/u");
-    }
-  }, [isLogged, navigate]);
 
   // ---------------------
   // ✅ GSAP Animation
@@ -150,7 +136,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <Link to={"/login"}>
+          <Link to={"/u"}>
             <div className="pt-9 hp">
               <button className="text-[0.8rem] md:text-[1rem] bg-white text-black px-8 py-2 md:py-3 rounded-full font-medium hover:bg-zinc-200 transition-all hover:scale-105 pointer-events-auto">
                 Start Managing Now
