@@ -126,7 +126,7 @@ export default function Header() {
   return (
     <>
       {/* Main Header */}
-      <header className="relative z-[100] w-full h-[55px] bg-surface border-b border-border flex justify-center items-center select-none">
+      <header className="relative z-[100] w-full h-[55px] bg-surface border-b border-border flex justify-center items-center select-none *:select-none">
         <section className="w-full flex items-center justify-between px-5">
           <article>
             <div className="min-w-5 min-h-5"></div>

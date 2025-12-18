@@ -5,8 +5,8 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { useNavigate } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore";
-import { AlertCircle } from "lucide-react";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { AlertCircle, Loader2 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 
@@ -25,7 +25,8 @@ export default function LoginPage() {
   // 🔹 State
   const [role, setRole] = useState("");
   const [showGoogleLoginBtn, setShowGoogleLoginBtn] = useState(false);
-  const [googleAuthDataColltextinggg, setGoogleAuthDataColltextinggg] = useState(false);
+  const [googleAuthDataColltextinggg, setGoogleAuthDataColltextinggg] =
+    useState(false);
   const [googleAuthDataError, setGoogleAuthDataError] = useState({
     status: false,
     text: "",
@@ -54,19 +55,28 @@ export default function LoginPage() {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
 
-      let data = {
-        name: user.displayName,
-        email: user.email,
-        photoURL: user.photoURL,
-        uid: user.uid,
-        emailVerified: user.emailVerified,
-        role: role,
-      };
+      const docSnap = await getDoc(doc(db, "users", user.uid));
 
-      await setDoc(doc(db, "users", user.uid), data, { merge: true });
-      localStorage.setItem("isLogged", "true");
-      localStorage.setItem("userDt", JSON.stringify(data));
-      setUserDt(data);
+      if (docSnap.exists()) {
+        let data = docSnap.data();
+        localStorage.setItem("isLogged", "true");
+        localStorage.setItem("userDt", JSON.stringify(data));
+        setUserDt(data);
+      } else {
+        let data = {
+          name: user.displayName,
+          email: user.email,
+          photoURL: user.photoURL,
+          uid: user.uid,
+          emailVerified: user.emailVerified,
+          role: role,
+        };
+        await setDoc(doc(db, "users", user.uid), data, { merge: true });
+        localStorage.setItem("isLogged", "true");
+        localStorage.setItem("userDt", JSON.stringify(data));
+        setUserDt(data);
+      }
+
       setIsLogged(true);
     } catch (error) {
       const errorCode = error.code;
@@ -114,7 +124,7 @@ export default function LoginPage() {
           transition={{
             duration: 0.4,
           }}
-          className="min-w-[400px] flex flex-col gap-4 items-center justify-center bg-surface border border-border rounded-lg px-11 py-9"
+          className="min-w-[95%] md:min-w-[400px] flex flex-col gap-4 items-center justify-center bg-surface border border-border rounded-lg mx-8 px-11 py-9"
         >
           <h2 className="text-[1.7rem] font-bold ">Login</h2>
           <div className="flex flex-col items-center justify-center gap-5 select-none *:select-none mt-5">
@@ -181,15 +191,21 @@ export default function LoginPage() {
                   animate={{ opacity: 1 }}
                   transition={{
                     delay: 0.4,
-                    duration: 0.2
+                    duration: 0.2,
                   }}
                   onClick={async () => await CollectGoogleAuthData()}
-                  className="flex justify-center items-center gap-3 bg-bg/70 duration-300 transition-all hover:bg-hover border border-border rounded-full px-6 p-2"
+                  className="min-w-[300px] flex justify-center items-center gap-3 bg-bg/70 duration-300 transition-all hover:bg-hover border border-border rounded-full px-6 p-2"
                 >
-                  <img className="w-5 h-5" src={google} alt="google" />
-                  <span className="font-light text-subtext text-[0.94rem]">
-                    Register with Google
-                  </span>
+                  {googleAuthDataColltextinggg ? (
+                    <Loader2 className="animate-spin" size={21.5} />
+                  ) : (
+                    <>
+                      <img className="w-5 h-5" src={google} alt="google" />
+                      <span className="font-light text-subtext text-[0.94rem]">
+                        Register with Google
+                      </span>
+                    </>
+                  )}
                 </motion.button>
               )}
             </AnimatePresence>

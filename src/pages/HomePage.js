@@ -152,7 +152,7 @@ export default function HomePage() {
 
           <Link to={"/login"}>
             <div className="pt-9 hp">
-              <button className=" bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-zinc-200 transition-all hover:scale-105 pointer-events-auto">
+              <button className="text-[0.8rem] md:text-[1rem] bg-white text-black px-8 py-2 md:py-3 rounded-full font-medium hover:bg-zinc-200 transition-all hover:scale-105 pointer-events-auto">
                 Start Managing Now
               </button>
             </div>

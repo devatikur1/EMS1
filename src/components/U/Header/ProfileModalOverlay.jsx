@@ -39,7 +39,7 @@ export default function ProfileModalOverlay({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={() => closeProfile()}
-        className="absolute inset-0 bg-black/60 backdrop-blur-md"
+        className="absolute inset-0 bg-black/60 backdrop-blur-md select-none"
       />
 
       {/* Modal-Content */}
@@ -74,7 +74,7 @@ export default function ProfileModalOverlay({
               />
               <label
                 htmlFor="file"
-                className="text-xs text-blue-400 hover:underline"
+                className="text-xs text-blue-400 hover:underline select-none"
               >
                 Change Photo
               </label>
@@ -99,7 +99,11 @@ export default function ProfileModalOverlay({
             </div>
             <div className="flex justify-center items-center pt-5 *:select-none">
               <button
-                disabled={(name === "" && pUrl === "") || updateLod === true}
+                disabled={
+                  (name === "" && pUrl === "") ||
+                  updateLod === true ||
+                  name === userDt?.name
+                }
                 onClick={async () => await handlePrUpdate()}
                 type="button"
                 className="bg-accent px-14 py-2 rounded-lg active:scale-[1.2] transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none"

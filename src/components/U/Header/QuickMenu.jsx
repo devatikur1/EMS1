@@ -29,11 +29,12 @@ export default function QuickMenu({
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
-          className="absolute z-[110] top-[60px] right-5 min-w-[220px] bg-surface/90 backdrop-blur-xl border border-border rounded-xl shadow-2xl p-2"
+          className="absolute z-[110] top-[60px] md:right-5 md:mx-0 min-w-[95%] md:min-w-[220px] bg-surface/90 backdrop-blur-xl border border-border rounded-xl shadow-2xl p-2"
         >
           <div className="px-3 py-3 border-b border-border mb-2">
-            <p className="text-white text-sm font-semibold">
-              {userDt?.name || "User"}
+            <p className="text-white text-sm font-semibold line-clamp-1">
+              <span>{userDt?.name || "User"}</span>
+              <small className="pl-2 text-subtext/80">{`(${userDt.role})`}</small>
             </p>
             <p className="text-zinc-500 text-xs truncate">{userDt?.email}</p>
           </div>
