@@ -62,7 +62,7 @@ export default function HomePage() {
           "radial-gradient(circle, rgba(159, 159, 169, 0.4) 1px, transparent 1px)",
         backgroundSize: "50px 50px",
       }}
-      className="relative min-h-screen overflow-hidden"
+      className="relative h-screen overflow-y-auto"
     >
       {/* Background elements (fixed) */}
       <div className=" fixed inset-0 overflow-hidden pointer-events-none z-0">

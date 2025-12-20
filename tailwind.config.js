@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       colors: {
         // Base Theme Colors
-        bg: "#09090b", // Deep black base background
-        surface: "#0f0f12", // Surface for cards or section
+        bg: "#000000", // Deep black base background
+        surface: "#0a0a0a", // Surface for cards or section
         accent: "#3b82f6", // Highlight or accent color
         accentA: "#27272a", // Highlight or accent color
         text: "#fafafa", // Main text color

@@ -24,7 +24,7 @@ export default function ULayout() {
   // ✅ Render
   // ---------------------
   return (
-    <main>
+    <main className="h-screen overflow-y-auto">
       <Header
         adminUrlArr={[
           { name: "Overview", path: "/u" },
@@ -40,6 +40,7 @@ export default function ULayout() {
         ]}
       
       />
+      
       <Outlet />
     </main>
   );

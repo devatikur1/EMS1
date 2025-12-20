@@ -129,7 +129,7 @@ export default function LoginPage() {
           "radial-gradient(circle, rgba(159, 159, 169, 0.4) 1px, transparent 1px)",
         backgroundSize: "50px 50px",
       }}
-      className="relative min-h-screen overflow-hidden flex justify-center items-center select-none *:select-none"
+      className="relative h-screen overflow-y-auto flex justify-center items-center select-none *:select-none"
     >
       <AnimatePresence>
         <motion.div
