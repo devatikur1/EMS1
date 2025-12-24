@@ -18,7 +18,7 @@ export default function CreateMain(props) {
         </p>
 
         <form
-          onSubmit={props.CraeteWorkspace}
+          onSubmit={props.CraeteWorkspacefn}
           className="flex flex-col items-center max-w-4xl mx-auto"
         >
           {/* 1. CHANGE IMAGE */}

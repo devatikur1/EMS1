@@ -3,17 +3,70 @@ import React from 'react'
 
 export default function WorkspaceTechStack({ actTags }) {
   const { activeTags, setActiveTags } = actTags;
-  const availableTags = [
-    "React",
-    "Figma",
-    "Node.js",
-    "Tailwind",
-    "Next.js",
-    "Python",
-    "Analytics",
-    "SEO",
-    "PostgreSQL",
-  ];
+const availableTags = [
+  // Frontend
+  "React",
+  "Next.js",
+  "Tailwind",
+  "TypeScript",
+  "Vue.js",
+  "Angular",
+  "Redux",
+  "Sass",
+  "HTML5",
+  "CSS3",
+
+  // UI/UX & Design
+  "Figma",
+  "Adobe XD",
+  "Photoshop",
+  "Illustrator",
+  "Canva",
+  "Sketch",
+  "After Effects",
+
+  // Backend & Database
+  "Node.js",
+  "Express.js",
+  "Python",
+  "Django",
+  "PostgreSQL",
+  "MongoDB",
+  "Firebase",
+  "MySQL",
+  "Prisma",
+  "GraphQL",
+
+  // Marketing & Growth
+  "SEO",
+  "Analytics",
+  "Google Ads",
+  "Content Writing",
+  "Social Media",
+  "Email Marketing",
+  "Growth Hacking",
+
+  // Management & Tools
+  "Jira",
+  "Trello",
+  "Slack",
+  "Agile",
+  "Scrum",
+  "Git",
+  "GitHub",
+  "Vercel",
+  "Docker",
+  "AWS",
+  "Google Cloud",
+
+  // Others
+  "Quality Assurance",
+  "Unit Testing",
+  "API Development",
+  "Blockchain",
+  "Machine Learning",
+  "Cyber Security",
+];
 
   const toggleTag = (tag) => {
     if (activeTags.includes(tag)) {
@@ -29,7 +82,7 @@ export default function WorkspaceTechStack({ actTags }) {
       </label>
 
       {/* Selected tag show here */}
-      <div className="flex flex-wrap gap-2 min-h-[50px] p-3 rounded-lg bg-bg border border-boxHover mb-4 transition-all duration-300">
+      <div className="flex flex-wrap gap-2 min-h-[50px] p-3 rounded-lg bg-surface border border-boxHover mb-4 transition-all duration-300">
         {activeTags.length === 0 ? (
           <span className="text-xs text-smtext opacity-50 italic">
             Select tools like React, Figma...
@@ -61,7 +114,7 @@ export default function WorkspaceTechStack({ actTags }) {
             className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-[11px] transition-all duration-300 ${
               activeTags.includes(tag)
                 ? "bg-accent border-accent text-text "
-                : "border-boxHover text-smtext hover:border-accent"
+                : "bg-surface border-boxHover text-smtext hover:border-accent"
             }`}
           >
             <span>{tag}</span>

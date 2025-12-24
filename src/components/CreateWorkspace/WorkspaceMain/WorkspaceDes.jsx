@@ -8,7 +8,7 @@ export default function WorkspaceDes({ des }) {
       <label className="text-sm font-medium text-text ml-1">
         Workspace Description
       </label>
-      <div className="relative flex rounded-lg bg-bg border border-boxHover focus-within:border-accent/50 transition-all">
+      <div className="relative flex rounded-lg bg-surface border border-boxHover focus-within:border-accent/50 transition-all">
         <DessertIcon size={18} className="absolute left-4 top-4 text-smtext" />
         <textarea
           value={description}

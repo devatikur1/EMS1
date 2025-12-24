@@ -186,7 +186,7 @@ export default function LoginPage() {
                           setShowGoogleLoginBtn(true);
                         }
                       }}
-                      className="bg-accentA/80 border border-accent/70 rounded-xl px-5 py-2 text-[0.81rem] font-normal disabled:opacity-50 disabled:pointer-events-none"
+                      className="bg-accentA/80 border border-accent/70 rounded-lg px-5 py-2 text-[0.81rem] font-normal disabled:opacity-50 disabled:pointer-events-none"
                     >
                       Set Role
                     </button>

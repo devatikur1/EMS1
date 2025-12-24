@@ -48,7 +48,7 @@ export default function CreateWorkspacePage() {
   // ✅ When Craete Workspace
   // ----------------------------
 
-  async function CraeteWorkspace(e) {
+  async function CraeteWorkspacefn(e) {
     e.preventDefault();
     setIsCreteing(true);
     try {
@@ -141,7 +141,7 @@ export default function CreateWorkspacePage() {
         actTags={{ activeTags, setActiveTags }}
         cat={{ category, setCategory }}
         totalMem={{ totalMembers, setTotalMembers }}
-        CraeteWorkspace={CraeteWorkspace}
+        CraeteWorkspacefn={CraeteWorkspacefn}
         isDisabled={isDisabled}
         isCreteing={isCreteing}
       />
