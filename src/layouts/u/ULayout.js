@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
 import Header from "../../components/U/Header";
@@ -35,8 +29,7 @@ export default function ULayout() {
     });
     return () => unsubscribe?.();
   }, [scrollYProgress]);
-  
-  
+
   // 🔹 Ref
   const navigate = useNavigate();
 
@@ -53,7 +46,10 @@ export default function ULayout() {
   // ✅ Render
   // ---------------------
   return (
-    <main ref={containerRef} className="h-screen overflow-y-auto overflow-x-hidden">
+    <main
+      ref={containerRef}
+      className="h-screen overflow-y-auto overflow-x-hidden"
+    >
       {/* Main Header */}
       <Header />
       {/* Options Header */}
