@@ -22,6 +22,7 @@ export default function AppContextProvider({ children }) {
   );
 
   // 🔹 overviewdt-State && Ref
+  const [noWorkspaces, setNoWorkspace] = useState(true);
   const [workspacesGetting, setWorkspacesGetting] = useState(false);
   const [lastWorkspaces, setLastWorkspace] = useState({});
   const [workspaces, setWorkspace] = useState([]);
@@ -53,6 +54,7 @@ export default function AppContextProvider({ children }) {
 
           // 🔹 Get Workspaces Data
           setWorkspacesGetting(true);
+          setNoWorkspace(false);
           try {
             const collectionRef = collection(db, `${data?.username}-workspace`);
 
@@ -70,20 +72,24 @@ export default function AppContextProvider({ children }) {
               );
               const querySnapshot = await getDocs(q);
               const wdata = querySnapshot.docs.map((doc) => doc.data());
+             
               if (wdata.length === Limit) {
                 setLastWorkspace(
                   querySnapshot.docs[querySnapshot.docs.length - 1]
                 );
               }
               setWorkspace(wdata);
+              setNoWorkspace(false);
             } else {
               setWorkspace([]);
               setLastWorkspace({});
+              setNoWorkspace(true);
             }
           } catch (error) {
             console.log(error);
             setWorkspace([]);
             setLastWorkspace({});
+             setNoWorkspace(true);
           } finally {
             setWorkspacesGetting(false);
           }
@@ -118,6 +124,7 @@ export default function AppContextProvider({ children }) {
     overviewdt: {
       workspaces,
       setWorkspace,
+      noWorkspaces,
       workspacesGetting,
       setWorkspacesGetting,
       lastWorkspaces,

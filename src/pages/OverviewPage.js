@@ -26,6 +26,7 @@ export default function OverviewPage() {
   const {
     workspaces,
     setWorkspace,
+    noWorkspaces,
     workspacesGetting,
     setWorkspacesGetting,
     lastWorkspaces,
@@ -89,6 +90,7 @@ export default function OverviewPage() {
 
       try {
         const collectionRef = collection(db, `${userDt?.username}-workspace`);
+        console.log(lastWorkspaces);
 
         const Limit = 2;
         const q = query(
@@ -131,6 +133,7 @@ export default function OverviewPage() {
           currentView={currentView}
           workspacesGetting={workspacesGetting}
           workspaceData={workspaceData}
+          noWorkspaces={noWorkspaces}
         />
       </div>
     </main>

@@ -9,6 +9,7 @@ export default function DynamicContent({
   currentView,
   workspacesGetting,
   workspaceData,
+  noWorkspaces,
 }) {
   const skeletonCount = 6;
 
@@ -55,7 +56,7 @@ export default function DynamicContent({
         </ul>
       )}
 
-      {workspaceData.length === 0 && (
+      {noWorkspaces && workspaceData.length === 0 && (
         <div className="text-center py-20 border border-dashed border-border rounded-xl">
           <p className="text-zinc-500 text-sm">No workspaces found.</p>
         </div>
